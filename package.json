@@ -7,9 +7,12 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "tap test/*.js"
+    "test": "tap test/*.js",
+    "debug": "DEBUG=fuzzytrack TAP_DIAG=1 tap test/*.js"
   },
-  "dependencies": {},
+  "dependencies": {
+    "debug": "*"
+  },
   "devDependencies": {
     "tap": "~0.2.5"
   }
