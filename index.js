@@ -1,17 +1,25 @@
 
 var fuzz = module.exports;
 
-fuzz.strip = function (s) {
-  return s.replace(/[^a-zA-Z0-9]/g, "");
+fuzz.stripParens = function (s) {
+  return s.replace(/\([^\)]*\)/g, "");
 };
 
-fuzz.test = function (target, test, opts) {
-  return fuzz.cached.test(target, opts)(test);
+fuzz.stripKeywords = function (s) {
+  return s.replace(/feat\.|vs\.|featuring|ft\./ig, "");
 };
 
-fuzz.cached = {};
+fuzz.stripCharacters = function (s) {
+  return s.replace(/[^a-zA-Z0-9 ]/g, "");
+};
 
-fuzz.cached.invTest = function (test, opts) {
+fuzz.strip = function(s) {
+  s = fuzz.stripKeywords(s);
+  s = fuzz.stripCharacters(s);
+  return s;
+};
+
+fuzz.invTest = function (test, opts) {
   opts = opts || {};
   var prep = opts.prep || fuzz.strip;
   var tester = new RegExp(prep(test), 'i');
@@ -20,7 +28,7 @@ fuzz.cached.invTest = function (test, opts) {
   };
 };
 
-fuzz.cached.test = function (target, opts) {
+fuzz.test = function (target, opts) {
   opts = opts || {};
   var prep = opts.prep || fuzz.strip;
   var prepTarget = prep(target);
