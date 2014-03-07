@@ -36,7 +36,7 @@ function compatible(a, b) {
 
 function tokenize(a, opts) {
   opts = opts || {};
-  if (opts.parens)
+  if (!opts.parens)
     a = fuzz.stripParens(a);
   a = fuzz.stripKeywords(a);
   a = fuzz.stripCharacters(a);
