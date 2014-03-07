@@ -1,9 +1,8 @@
-
 # fuzzy-track-matching
 
 Simple fuzzy string matching on track titles
 
-[![build status](https://secure.travis-ci.org/jb55/fuzzy-track-matching.png)](http://travis-ci.org/jb55/fuzzy-track-matching)
+[![build status](https://secure.travis-ci.org/monstercat/fuzzy-track-matching.png)](http://travis-ci.org/monstercat/fuzzy-track-matching)
 
 ## Example
 
