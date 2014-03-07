@@ -18,3 +18,8 @@ var matches = tester('over it feat. Dia Frampton') && tester('The crystal method
 // matches is true
 ```
 
+## Changelog
+
+### 3.0.0
+
+* Fixed false matches with Remixes, `My Track` no longer matches `My Track (DJ Flash Remix)`
